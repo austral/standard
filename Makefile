@@ -17,7 +17,7 @@ run-tests: $(TEST_BIN)
 
 $(TEST_BIN): src/*.aui src/*.aum test/*.aui test/*.aum
 	$(AUSTRAL) compile $(MODULES) --entrypoint=Standard.Test:Main --output=test.cpp
-	$(CPP) test.cpp -o $(TEST_BIN)
+	$(CPP) -std=c++11 test.cpp -o $(TEST_BIN)
 	rm test.cpp
 
 clean:
