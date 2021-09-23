@@ -17,12 +17,24 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    env:
+      AUSTRAL_VERSION: v0.0.3
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Download Austral compiler
-        run: curl -o austral -L "https://github.com/austral/austral/releases/download/v0.0.3/austral-linux"
+      - name: Download Austral compiler for Linux
+        run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-linux"
+        if: os.runner == 'Linux'
+
+      - name: Download Austral compiler for mac OS
+        run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-macos"
+        if: os.runner == 'macOS'
+
+      - name: Download Austral compiler for Windows
+        run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-windows"
+        if: os.runner == 'Windows'
 
       - name: Make Austral compiler executable
         run: chmod +x austral
