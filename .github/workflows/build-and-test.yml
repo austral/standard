@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download Austral compiler
-        run: curl -o austral -L "https://github.com/austral/austral/releases/download/v0.0.2/austral-linux"
+        run: curl -o austral -L "https://github.com/austral/austral/releases/download/v0.0.3/austral-linux"
 
       - name: Make Austral compiler executable
         run: chmod +x austral
