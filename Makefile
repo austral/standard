@@ -1,0 +1,24 @@
+AUSTRAL := austral
+CPP := g++
+
+TEST_BIN := test_bin
+
+.DEFAULT: run-tests
+
+run-tests: $(TEST_BIN)
+	./$(TEST_BIN)
+
+$(TEST_BIN): src/*.aui src/*.aum test/*.aui test/*.aum
+	$(AUSTRAL) compile \
+		--module=src/Box \
+		--module=src/Array \
+                --module=src/Console \
+		--module=test/Unit \
+		--module=test/Main \
+		--entrypoint=Standard.Test:Main \
+		--output=test.cpp
+	$(CPP) test.cpp -o $(TEST_BIN)
+	rm test.cpp
+
+clean:
+	rm $(TEST_BIN)

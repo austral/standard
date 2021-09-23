@@ -1,0 +1,23 @@
+import Austral.Memory (
+    Heap_Array,
+    Allocate_Array,
+    Deallocate_Array,
+    Heap_Array_Size
+);
+
+module body Standard.Array is
+    pragma Unsafe_Module;
+
+    function Put_Character(character: Natural_8): Integer_32 is
+        pragma Foreign_Import(External_Name => "putchar");
+    end;
+
+    function Show_Bool(b: Boolean): Unit is
+        if b then
+            Put_Character(84);
+        else
+            Put_Character(70);
+        end if;
+        return nil;
+    end;
+end module body.
