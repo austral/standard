@@ -24,11 +24,8 @@ jobs:
       - name: Download Austral compiler
         run: curl -o austral https://github.com/austral/austral/releases/download/v0.0.2/austral-linux
 
-      - name: Install Austral compiler
-        run: sudo install -m 755 austral /usr/local/bin/austral
-
       - name: Build standard library unit tests
-        run: make test_bin
+        run: AUSTRAL=./austral make test_bin
 
       - name: Run tests
         run: ./test_bin
