@@ -21,19 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up OCaml ${{ matrix.ocaml-version }}
-        uses: avsm/setup-ocaml@v1
-        with:
-          ocaml-version: ${{ matrix.ocaml-version }}
+      - name: Download Austral compiler
+        run: curl -o austral https://github.com/austral/austral/releases/download/v0.0.2/austral-linux
 
-      - name: Install dependencies
-        run: opam install make dune ppx_deriving ounit2 menhir
-
-      - name: Clone Austral repo
-        run: git clone git@github.com:austral/austral.git
-
-      - name: Build Austral
-        run: cd austral && make && sudo make install && cd ..
+      - name: Install Austral compiler
+        run: sudo install -m 755 austral /usr/local/bin/austral
 
       - name: Build standard library unit tests
         run: make test_bin
