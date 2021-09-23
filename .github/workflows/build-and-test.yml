@@ -26,15 +26,15 @@ jobs:
 
       - name: Download Austral compiler for Linux
         run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-linux"
-        if: os.runner == 'Linux'
+        if: runner.os == 'Linux'
 
       - name: Download Austral compiler for mac OS
         run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-macos"
-        if: os.runner == 'macOS'
+        if: runner.os == 'macOS'
 
       - name: Download Austral compiler for Windows
         run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-windows"
-        if: os.runner == 'Windows'
+        if: runner.os == 'Windows'
 
       - name: Make Austral compiler executable
         run: chmod +x austral
