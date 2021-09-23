@@ -33,7 +33,7 @@ jobs:
         if: runner.os == 'macOS'
 
       - name: Download Austral compiler for Windows
-        run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral-windows"
+        run: curl -o austral -L "https://github.com/austral/austral/releases/download/$AUSTRAL_VERSION/austral.exe"
         if: runner.os == 'Windows'
 
       - name: Make Austral compiler executable
