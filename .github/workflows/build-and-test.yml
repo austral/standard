@@ -25,7 +25,7 @@ jobs:
         run: curl -o austral https://github.com/austral/austral/releases/download/v0.0.2/austral-linux
 
       - name: Build standard library unit tests
-        run: AUSTRAL=./austral make test_bin
+        run: make test_bin 'AUSTRAL=./austral'
 
       - name: Run tests
         run: ./test_bin
