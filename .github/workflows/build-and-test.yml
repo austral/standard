@@ -24,6 +24,9 @@ jobs:
       - name: Download Austral compiler
         run: curl -o austral https://github.com/austral/austral/releases/download/v0.0.2/austral-linux
 
+      - name: Make Austral compiler executable
+        run: chmod +x austral
+
       - name: Build standard library unit tests
         run: make test_bin 'AUSTRAL=./austral'
 
