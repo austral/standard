@@ -1,12 +1,10 @@
-import Standard.Test.Unit (
-    Suite_Heading,
-    Test_Heading
+import Standard.Test.Box (
+    Box_Test_Suite
 );
 
 module body Standard.Test is
     function Main(root: Root_Capability): Root_Capability is
-        Suite_Heading("First");
-        Test_Heading("Second");
+        Box_Test_Suite();
         return root;
     end;
 end module body.

@@ -6,6 +6,7 @@ MODULES := --module=src/Box \
 	--module=src/Array \
 	--module=src/Console \
 	--module=test/Unit \
+	--module=test/Box_Test \
 	--module=test/Main
 
 TEST_BIN := test_bin
