@@ -3,10 +3,11 @@ CPP := g++
 
 
 MODULES := --module=src/Box \
-	--module=src/Array \
+	--module=src/Buffer \
 	--module=src/Console \
 	--module=test/Unit \
 	--module=test/Box_Test \
+	--module=test/Buffer_Test \
 	--module=test/Main
 
 TEST_BIN := test_bin
